@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans:  var(--font-dm-sans);
+  --font-serif: var(--font-playfair);
+
+  --color-primair:     #1d3461;
+  --color-accent:      #5e99f7;
+  --color-cta:         #c70015;
+  --color-success:     #2d6a4f;
+  --color-off:         #f8f8f6;
+  --color-border:      #e8e8e4;
+  --color-muted:       #888880;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { min-height: 100vh; }
+button, input, select, textarea { font: inherit; }
+
+/* ─── Scrollbar utility ─── */
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* ─── Nav underline animatie ─── */
+.site-nav-underline { position: relative; }
+.site-nav-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background: #5e99f7;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.site-nav-underline:hover::after { transform: scaleX(1); }
+
+/* ─── Hero orb decoraties ─── */
+.site-hero-orb {
+  border-radius: 50%;
+  filter: blur(88px);
+  will-change: transform;
+}
+.site-hero-orb--a {
+  width: 520px; height: 520px;
+  top: -18%; left: -10%;
+  background: radial-gradient(circle, rgba(94, 152, 252, .22), transparent 68%);
+  animation: siteOrbA 22s ease-in-out infinite;
+}
+.site-hero-orb--b {
+  width: 440px; height: 440px;
+  bottom: -8%; right: -10%;
+  background: radial-gradient(circle, rgba(30, 80, 160, .38), transparent 66%);
+  animation: siteOrbB 28s ease-in-out infinite;
+}
+.site-hero-orb--c {
+  width: 320px; height: 320px;
+  top: 32%; left: 52%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .06), transparent 64%);
+  animation: siteOrbC 17s ease-in-out infinite;
+}
+
+@keyframes siteOrbA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  35%       { transform: translate(55px, 45px) scale(1.1); }
+  70%       { transform: translate(-25px, 65px) scale(0.93); }
+}
+@keyframes siteOrbB {
+  0%, 100% { transform: translate(0, 0) scale(1.1); }
+  40%       { transform: translate(-65px, -42px) scale(1); }
+  75%       { transform: translate(28px, -62px) scale(1.18); }
+}
+@keyframes siteOrbC {
+  0%, 100% { transform: translate(0, 0) scale(1);    opacity: .7; }
+  50%       { transform: translate(-32px, 22px) scale(1.24); opacity: 1; }
+}
+
+/* ─── Inkomst-animaties ─── */
+@keyframes siteStepIn {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+@keyframes siteFadeUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.site-step-in { animation: siteStepIn .2s ease-out both; }
+.site-fade-up { animation: siteFadeUp .4s ease-out both; }
+
+/* ─── Wave achtergrondlaag ─── */
+.site-wave-shell {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(249, 252, 255, .96), rgba(248, 248, 246, 1)), #f8f8f6;
+}
+.site-wave-shell::before {
+  content: "";
+  position: fixed;
+  left: -14vw;
+  bottom: -72px;
+  width: max(1500px, 136vw);
+  height: clamp(300px, 24vw, 460px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: .92;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='1600' height='460' viewBox='0 0 1600 460' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-120 278c154-90 282-104 420-38 132 63 238 106 402 12 150-86 282-124 486-40 166 68 286 74 492-26v274H-120Z' fill='%235e99f7' opacity='.07'/%3E%3Cpath d='M-100 326c180-76 312-68 456 8 158 84 296 78 454-24 170-110 318-128 520-36 126 58 220 64 350 18v168H-100Z' fill='%23c70015' opacity='.045'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* ─── Knoppen en links ─── */
+a.rounded-lg, a.rounded-xl,
+button.rounded-lg, button.rounded-xl {
+  transition: opacity 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-hero-orb,
+  .site-step-in,
+  .site-fade-up {
+    animation: none;
+  }
+}
