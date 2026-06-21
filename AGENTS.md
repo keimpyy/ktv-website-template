@@ -13,4 +13,4 @@ At the start of every session, run `echo $COMPUTERNAME` (Bash) to detect the mac
 
 # Git sync check (session start)
 
-At the start of every session, run `git fetch origin` and check if the local branch is behind the remote. If it is, warn the user immediately with how many commits they are behind and tell them to run `git pull` before making any changes.
+At the start of every session, run `git fetch origin` and check if the local branch is behind the remote. If it is, automatically run `git pull` and inform the user that you pulled and how many commits were pulled in.
