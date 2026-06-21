@@ -9,7 +9,7 @@ Supabase clients staan in `lib/supabase/`. Voeg project-specifieke tabellen en t
 
 # Commit prefix
 
-Always prefix commit messages with `[Laptop]` to indicate which machine the commit came from. Example: `[Laptop] fix: update button styles`
+At the start of every session, run `echo $COMPUTERNAME` (Bash) to detect the machine name, and use it as the commit prefix. Example: if `$COMPUTERNAME` returns `KT-PC`, prefix commits with `[KT-PC]`. This way the prefix is always correct regardless of which machine the session runs on.
 
 # Git sync check (session start)
 
