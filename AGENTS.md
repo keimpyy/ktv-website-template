@@ -9,7 +9,7 @@ Supabase clients staan in `lib/supabase/`. Voeg project-specifieke tabellen en t
 
 # Commit prefix
 
-Always prefix commit messages with `[PC]` to indicate which machine the commit came from. Example: `[PC] fix: update button styles`
+Always prefix commit messages with `[Laptop]` to indicate which machine the commit came from. Example: `[Laptop] fix: update button styles`
 
 # Git sync check (session start)
 
